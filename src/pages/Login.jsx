@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import logo from '/public/cdcclogo.png';
 
 export default function Login() {
 	const [email, setEmail] = useState('')
@@ -36,11 +37,11 @@ export default function Login() {
 		e.preventDefault()
 		setError('')
 		try {
-			if(email === 'admin' && password === 'password') {
+			if (email === 'admin' && password === 'password') {
 				localStorage.setItem('token', 'admin')
 				navigate('/students')
 				return
-			}else{
+			} else {
 				throw new Error('Invalid credentials')
 			}
 		} catch (err) {
@@ -74,7 +75,7 @@ export default function Login() {
 		<div className="row" style={maindiv}>
 			<div className="col-4 col-sm-8 col-md-8 col-lg-6 " style={main_matcard}>
 				<div style={{ textAlign: 'center', marginBottom: 24 }}>
-					<img src="cdcclogo.png" alt="CDCC LOGO" />
+					<img src={logo} alt="CDCC LOGO" />
 				</div>
 				<h2 style={{ margin: '0 0 16px' }}>Login</h2>
 

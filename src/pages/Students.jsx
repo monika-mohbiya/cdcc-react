@@ -39,7 +39,7 @@ export default function Students() {
 	}
 
 	const view = (s) => {
-		window.open('/anskey/' + s.enroll, '_blank');
+		navigate('/anskey/' + s.enroll, '_blank');
 	}
 
 	return (

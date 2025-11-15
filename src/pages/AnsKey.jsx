@@ -5,7 +5,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import candidateData from "../model/candidate.json";
 import QUESTIONS from "../model/cdcc_bank.questions.json";
 import RESPONSE from "../model/response.json";
-import touchIcon from '../assets/touch_app.svg'
+import touchIcon from '/public/touch_app.svg'
+import logo from '/cdcclogo.png';
 
 export default function AnsKey() {
   const [loading, setLoading] = useState(false);
@@ -16,14 +17,14 @@ export default function AnsKey() {
   // const optionBaseurl = import.meta.env.VITE_API_URL + '/uploads/options/' || ''
 
   // Import all question images
-  const questionFiles = import.meta.glob('../uploads/questions/**/*.{png,jpg,jpeg}', {
+  const questionFiles = import.meta.glob('/public/uploads/questions/**/*.{png,jpg,jpeg}', {
     eager: true,
     import: 'default'
   });
   const questionBaseurl = Object.values(questionFiles);
 
   // Import all option images
-  const optionFiles = import.meta.glob('../uploads/options/**/*.{png,jpg,jpeg}', {
+  const optionFiles = import.meta.glob('/public/uploads/options/**/*.{png,jpg,jpeg}', {
     eager: true,
     import: 'default'
   });
@@ -154,7 +155,7 @@ export default function AnsKey() {
   return (
     <div style={{ maxWidth: 1000, margin: '24px auto', padding: '0 16px' }}>
       <div style={{ textAlign: 'center', marginBottom: 24 }}>
-        <img src="../cdcclogo.png" alt="CDCC LOGO" />
+        <img src={logo} alt="CDCC LOGO" />
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
         <div className="">
@@ -230,10 +231,10 @@ export default function AnsKey() {
               <img
                 src={touchIcon}
                 alt="Touch Icon"
-                style={{ width: "16px", height: "16px", position: "absolute" }}
+                style={{ width: "16px", height: "16px", }}
               />
 
-            </span> <span className="">Means Chosen option</span></li>
+            </span> <span className="" style={{ position: "absolute", marginTop: "2px" }}>Means Chosen option</span></li>
           </ul>
 
           <div className="container-fluid box_card ">
